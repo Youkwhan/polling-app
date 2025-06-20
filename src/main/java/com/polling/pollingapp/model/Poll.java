@@ -14,10 +14,14 @@ public class Poll {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String question;
+
     @ElementCollection // jpa annotation, create separate table 'poll_options' in db without new entity
-    private List<String> options = new ArrayList<>();
-    @ElementCollection // we use this bcz this entity is pretty simple ('poll_votes' table with id and votes)
-    private List<Long> votes = new ArrayList<>();
+    private List<OptionVote> options = new ArrayList<>();
+
+// Refactor: votes should be associated with options and not just 'id'.
+// we use this bcz this entity is pretty simple ('poll_votes' table with id and votes)
+//    @ElementCollection
+//    private List<Long> votes = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -35,19 +39,11 @@ public class Poll {
         this.question = question;
     }
 
-    public List<String> getOptions() {
+    public List<OptionVote> getOptions() {
         return options;
     }
 
-    public void setOptions(List<String> options) {
+    public void setOptions(List<OptionVote> options) {
         this.options = options;
-    }
-
-    public List<Long> getVotes() {
-        return votes;
-    }
-
-    public void setVotes(List<Long> votes) {
-        this.votes = votes;
     }
 }
