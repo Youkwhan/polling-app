@@ -1,33 +1,23 @@
-HELP.md
-target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# .gitignore for the project root
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
+### IDE ###
+# Ignores configuration folders for common editors.
+# These are created at the project root to manage the whole project.
+.idea/
 .vscode/
+.settings/
+.classpath
+.project
+
+### Operating System ###
+# Ignore files created by macOS and Windows.
+.DS_Store
+Thumbs.db
+
+### General ###
+# Ignore common log files that could be generated anywhere.
+*.log
+npm-debug.log*
+
+# Ignore local environment variables.
+.env
